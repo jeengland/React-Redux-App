@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
 
-const App = () => {
+import { fetchClues } from './actions/game-actions';
+
+const App = ({ fetchClues }) => {
+    useEffect(() => {
+        fetchClues();
+    }, [])
     return (
-        <h1>Hello World</h1>
+        <React.Fragment>
+            <h1>Hello World</h1>
+        </React.Fragment>
     )
 }
 
-export default App;
+export default connect(null, { fetchClues })(App);

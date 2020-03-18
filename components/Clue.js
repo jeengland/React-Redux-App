@@ -1,12 +1,47 @@
 import React from 'react';
+import styled from '@emotion/styled';
+
+const ClueCard = styled.div`
+    background-color: #19138a;
+    color: white;
+    text-align: center;
+    min-height: 40vh;
+    .value {
+        color: #eca03e;
+        font-weight: bold;
+        font-size: 4rem;
+        margin: 0;
+        @media (max-width: 500px) {
+            font-size: 3rem;
+        }
+    }
+    .category {
+        text-transform: capitalize;
+        font-weight: bold;
+        font-size: 3rem;
+        margin: 0;
+        padding: 1%;
+        @media (max-width: 500px) {
+            font-size: 2.5rem;
+        }
+    }
+    .question {
+        font-size: 2rem;
+        padding: 15vh 2% 25vh;
+        @media (max-width: 500px) {
+            padding: 2% 2% 5%;
+        }
+    }
+`
+
 
 const Clue = ({ clue }) => {
     return (
-        <div className='clue'>
-            <h2 className='category'>{clue.category.title}</h2>
-            <h3 className='value'>{clue.value}</h3>
+        <ClueCard>
+            <p className='value'>{clue.value}</p>
+            <p className='category'>{clue.category.title}</p>
             <p className='question'>{clue.question}</p>
-        </div>
+        </ClueCard>
     )
 }
 

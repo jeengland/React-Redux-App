@@ -10,9 +10,8 @@ import InputContainer from './containers/InputContainer';
 import ScoreContainer from './containers/ScoreContainer';
 
 const Column = styled.div`
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
-    background-color: red;
 `
 
 const App = ({ clues, currentClue, currentClueIndex, fetchClues, totalClues, skipQuestion, updateClue }) => {

@@ -347,3 +347,7 @@
   [hidden] {
     display: none;
   }
+
+  body {
+    background-color: #1b1d23;
+  }

@@ -11,7 +11,16 @@ import ScoreContainer from './containers/ScoreContainer';
 
 const Column = styled.div`
     max-width: 1000px;
+    min-height: 100vh;
     margin: 0 auto;
+    background-color: #24292e;
+    h1 {
+        text-align: center;
+    }
+    .userArea {
+        display: flex;
+        flex-direction: row;
+    }
 `
 
 const App = ({ clues, currentClue, currentClueIndex, fetchClues, totalClues, skipQuestion, updateClue }) => {
@@ -37,9 +46,11 @@ const App = ({ clues, currentClue, currentClueIndex, fetchClues, totalClues, ski
     }, [currentClue])
     return (
         <Column>
-            {clues.length ? <ClueContainer /> : undefined}
-            <InputContainer />
-            <ScoreContainer />
+            {clues.length ? <ClueContainer /> : <h1>Loading...</h1>}
+            <div className='userArea'>
+                <InputContainer />
+                <ScoreContainer />
+            </div>
         </Column>
     )
 }

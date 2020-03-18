@@ -6,6 +6,10 @@ const ClueCard = styled.div`
     color: white;
     text-align: center;
     min-height: 40vh;
+    text-shadow: 2px 2px black;
+    @media (max-width: 500px) {
+        padding: 2%;
+    }
     .value {
         color: #eca03e;
         font-weight: bold;
@@ -29,7 +33,7 @@ const ClueCard = styled.div`
         font-size: 2rem;
         padding: 15vh 2% 25vh;
         @media (max-width: 500px) {
-            padding: 2% 2% 5%;
+            padding: 2%;
         }
     }
 `

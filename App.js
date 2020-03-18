@@ -1,19 +1,26 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import styled from '@emotion/styled';
 
 import { fetchClues } from './actions/game-actions';
-import { updateClue } from './actions/clue-actions';
+import { updateClue, skipQuestion } from './actions/clue-actions';
 
 import ClueContainer from './containers/ClueContainer';
 import InputContainer from './containers/InputContainer';
 import ScoreContainer from './containers/ScoreContainer';
 
-import './App.css'
+const Column = styled.div`
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: red;
+`
 
-const App = ({ clues, currentClue, currentClueIndex, fetchClues, totalClues, updateClue }) => {
+const App = ({ clues, currentClue, currentClueIndex, fetchClues, totalClues, skipQuestion, updateClue }) => {
+    // useEffect to pull clues from API on page load
     useEffect(() => {
         fetchClues();
     }, []);
+    // useEffect to update to the next clue, or pull more clues if all clues have been used
     useEffect(() => {
         if (currentClueIndex > totalClues) {
             fetchClues()
@@ -21,12 +28,20 @@ const App = ({ clues, currentClue, currentClueIndex, fetchClues, totalClues, upd
             updateClue(clues[currentClueIndex]);
         }
     }, [currentClueIndex])
+    // useEffect to skip a question if it is missing vital information
+    useEffect(() => {
+        if (currentClue) {
+            if (!currentClue.answer || !currentClue.value || !currentClue.question || !currentClue.category.title ) {
+                skipQuestion();
+            }
+        }
+    }, [currentClue])
     return (
-        <React.Fragment>
+        <Column>
             {clues.length ? <ClueContainer /> : undefined}
             <InputContainer />
             <ScoreContainer />
-        </React.Fragment>
+        </Column>
     )
 }
 
@@ -39,4 +54,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, { fetchClues, updateClue })(App);
+export default connect(mapStateToProps, { fetchClues, updateClue, skipQuestion })(App);

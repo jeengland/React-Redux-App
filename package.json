@@ -4,7 +4,9 @@
   "description": "We've seen many different styles of form management by now -- simple to complex. Today we are going to unleash your inner form-wizard! 🧙",
   "main": "index.js",
   "scripts": {
-    "start": "parcel index.html"
+    "start": "parcel index.html",
+    "predeploy": "rm -rf dist && parcel build index.html --public-url /React-Redux-App",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
@@ -28,6 +30,7 @@
     "@babel/core": "^7.8.6",
     "@babel/preset-env": "^7.8.6",
     "@babel/preset-react": "^7.8.3",
+    "gh-pages": "^2.2.0",
     "parcel-bundler": "^1.12.4"
   }
 }

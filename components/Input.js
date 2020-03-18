@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
+import clueReducer from '../reducers/clueReducer';
 
 const Input = (props) => {
     const [answer, setAnswer] = useState('');
     const handleChange = (event) => setAnswer(event.target.value);
     const handleSubmit = () => {
         event.preventDefault();
-        if (answer === props.answer) {
-            
+        if (answer.toLowerCase() === props.clue.answer.toLowerCase()) {
+            props.submitCorrectAnswer(answer, props.clue.value)
+        } else {
+            props.submitIncorrectAnswer(answer, props.clue.value, props.clue.answer)
         }
         setAnswer('');
     } 

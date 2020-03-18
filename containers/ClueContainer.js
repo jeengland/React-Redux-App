@@ -3,7 +3,7 @@ import Clue from '../components/Clue';
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        clue: state.game.clues[ownProps.clueId]
+        clue: state.clue.currentClue,
     }
 }
 

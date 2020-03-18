@@ -1,5 +1,6 @@
-export const SUBMIT_CORRECT_ANSWER = 'SUBMIT_CORRECT_ANSWER'
-export const SUBMIT_INCORRECT_ANSWER = 'SUBMIT_INCORRECT_ANSWER'
+export const SUBMIT_CORRECT_ANSWER = 'SUBMIT_CORRECT_ANSWER';
+export const SUBMIT_INCORRECT_ANSWER = 'SUBMIT_INCORRECT_ANSWER';
+export const UPDATE_CLUE = 'UPDATE_CLUE';
 
 export const submitCorrectAnswer = (answer, score) => {
     return {
@@ -8,9 +9,16 @@ export const submitCorrectAnswer = (answer, score) => {
     }
 }
 
-export const submitIncorrectAnswer = (answer, score) => {
+export const submitIncorrectAnswer = (answer, score, correct) => {
     return {
         type: SUBMIT_INCORRECT_ANSWER,
-        payload: { answer, score }
+        payload: { answer, score, correct }
+    }
+}
+
+export const updateClue = (clue) => {
+    return {
+        type: UPDATE_CLUE,
+        payload: { clue }
     }
 }

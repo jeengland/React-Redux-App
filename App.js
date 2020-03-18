@@ -2,16 +2,25 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 
 import { fetchClues } from './actions/game-actions';
+import ClueContainer from './containers/ClueContainer';
 
-const App = ({ fetchClues }) => {
+import './App.css'
+
+const App = ({ fetchClues, clues}) => {
     useEffect(() => {
         fetchClues();
     }, [])
     return (
         <React.Fragment>
-            <h1>Hello World</h1>
+            {clues.length ? <ClueContainer clueId={0}/> : undefined}
         </React.Fragment>
     )
 }
 
-export default connect(null, { fetchClues })(App);
+const mapStateToProps = (state) => {
+    return {
+        clues: state.game.clues,
+    }
+}
+
+export default connect(mapStateToProps, { fetchClues })(App);

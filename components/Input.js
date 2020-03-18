@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import clueReducer from '../reducers/clueReducer';
+import { skipQuestion } from '../actions/clue-actions';
 
 const Input = (props) => {
     const [answer, setAnswer] = useState('');
@@ -16,8 +17,9 @@ const Input = (props) => {
     return (
         <form onSubmit={handleSubmit}>
             <label htmlFor='answer'>Answer:
-                <input type='text' name='answer' id='answer' placeholder='Answer' value={answer} onChange={handleChange}/>
+                <input type='text' name='answer' id='answer' placeholder='Answer' autoComplete='off' value={answer} onChange={handleChange}/>
                 <input type='submit' />
+                <button type='button' onClick={props.skipQuestion}>Skip Question</button>
             </label>
         </form>
     )

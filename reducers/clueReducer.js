@@ -1,5 +1,5 @@
 import { FETCH_CLUES_SUCCESS } from '../actions/game-actions';
-import { SUBMIT_CORRECT_ANSWER, SUBMIT_INCORRECT_ANSWER, UPDATE_CLUE } from '../actions/clue-actions';
+import { SUBMIT_CORRECT_ANSWER, SUBMIT_INCORRECT_ANSWER, UPDATE_CLUE, SKIP_QUESTION } from '../actions/clue-actions';
 
 const initialState = {
     currentClue: {},
@@ -26,6 +26,11 @@ const clueReducer = (state = initialState, action) => {
             return {
                 ...state,
                 currentClue: action.payload.clue,
+            }
+        case SKIP_QUESTION:
+            return {
+                ...state,
+                currentClueIndex: state.currentClueIndex + 1,
             }
         default:
             return state;

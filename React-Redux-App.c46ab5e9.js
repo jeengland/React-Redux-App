@@ -150,4 +150,4 @@ module.exports=require("./lib/axios");
 },{"react":"HdMw","react-redux":"sYSi","./actions/game-actions":"km9S"}],"Focm":[function(require,module,exports) {
 "use strict";var e=require("react-redux"),r=require("redux"),u=o(require("redux-thunk")),t=o(require("./reducers")),d=o(require("./App")),a=o(require("react")),l=o(require("react-dom"));function o(e){return e&&e.__esModule?e:{default:e}}var _=(0,r.createStore)(t.default,(0,r.compose)((0,r.applyMiddleware)(u.default),window.__REDUX_DEVTOOLS_EXTENSION__&&window.__REDUX_DEVTOOLS_EXTENSION__())),i=document.querySelector("#root");l.default.render(a.default.createElement(e.Provider,{store:_},a.default.createElement(d.default,null)),i);
 },{"react-redux":"sYSi","redux":"WZ36","redux-thunk":"RXd5","./reducers":"YCYF","./App":"lY9v","react":"HdMw","react-dom":"X9zx"}]},{},["Focm"], null)
-//# sourceMappingURL=React-Redux-App/React-Redux-App.c46ab5e9.js.map
+//# sourceMappingURL=/React-Redux-App/React-Redux-App.c46ab5e9.js.map

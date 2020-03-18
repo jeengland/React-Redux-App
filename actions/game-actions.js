@@ -7,7 +7,13 @@ export const FETCH_CLUES_FAIL = 'FETCH_CLUES_FAIL';
 export const fetchClues = () => dispatch => {
     dispatch({ type: FETCH_CLUES_START })
     axios
-        .get('http://jservice.io/api/clues?count=100')
-        .then((response) => console.log(response))
-        .catch((error) => console.log(error))
+        .get('http://jservice.io/api/random?count=100')
+        .then((response) => {
+            console.log("Clues fetched!")
+            dispatch({ type: FETCH_CLUES_SUCCESS, payload: { data: response.data }})
+        })
+        .catch((error) => {
+            console.error(error);
+            dispatch({ type: FETCH_CLUES_FAIL, payload: { error: error.message }})
+        })
 }

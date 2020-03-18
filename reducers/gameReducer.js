@@ -9,7 +9,11 @@ const initialState = {
 const gameReducer = (state = initialState, action) => {
     switch (action.type) {
         case FETCH_CLUES_START: 
-            return { ...state, isLoading: true }
+            return { ...state, isLoading: true, error: '' }
+        case FETCH_CLUES_SUCCESS:
+            return { ...state, isLoading: false, error: '', clues: action.payload.data }
+        case FETCH_CLUES_FAIL: 
+            return { ...state, isLoading: false, error: action.payload.error }
         default: 
             return state;
     };

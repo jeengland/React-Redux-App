@@ -20,6 +20,9 @@ const Column = styled.div`
     .userArea {
         display: flex;
         flex-direction: row;
+        @media ( max-width: 500px ) {
+            flex-direction: column;
+        }
     }
 `
 

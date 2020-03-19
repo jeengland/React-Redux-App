@@ -5,10 +5,10 @@ const ClueCard = styled.div`
     background-color: #19138a;
     color: white;
     text-align: center;
-    min-height: 40vh;
+    min-height: 30vh;
     text-shadow: 2px 2px black;
     @media (max-width: 500px) {
-        padding: 2%;
+        min-height: 50vh;
     }
     .value {
         color: #eca03e;
@@ -16,24 +16,27 @@ const ClueCard = styled.div`
         font-size: 4rem;
         margin: 0;
         @media (max-width: 500px) {
-            font-size: 3rem;
-        }
-    }
-    .category {
-        text-transform: capitalize;
-        font-weight: bold;
-        font-size: 3rem;
-        margin: 0;
-        padding: 1%;
-        @media (max-width: 500px) {
             font-size: 2.5rem;
         }
     }
-    .question {
-        font-size: 2rem;
-        padding: 15vh 2% 25vh;
+    .category {
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        font-size: 3rem;
+        margin: 0;
+        padding: 1%;
+        font-family: 'Anton', sans-serif;
         @media (max-width: 500px) {
-            padding: 2%;
+            font-size: 2rem;
+        }
+    }
+    .question {
+        text-transform: uppercase;
+        font-size: 2.5rem;
+        padding: 10vh 2% 20vh;
+        @media (max-width: 500px) {
+            padding: 5%;
+            font-size: 1.5rem;
         }
     }
 `

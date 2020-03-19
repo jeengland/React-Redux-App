@@ -44,7 +44,7 @@ const Input = (props) => {
         <InputCard>
             <form onSubmit={handleSubmit}>
                 <label htmlFor='answer'>Answer:
-                    <input autofocus='true' type='text' name='answer' id='answer' autoComplete='off' value={answer} onChange={handleChange}/>
+                    <input autoFocus='true' type='text' name='answer' id='answer' autoComplete='off' value={answer} onChange={handleChange}/>
                 </label>
                 <div className='buttons'>
                     <input type='submit' />
